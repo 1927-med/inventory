@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/items")
@@ -42,5 +43,21 @@ public class InventoryController {
     public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
         inventoryService.deleteItem(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    /**
+     * Solves the dynamic ordering problem.
+     *
+     * @param orderingCost Fixed cost for placing an order.
+     * @param holdingCost  Cost of holding one unit of inventory.
+     * @param demands      Array of demands for each time period.
+     * @return A map of inventory levels to their minimal costs.
+     */
+    @PostMapping("/solve")
+    public Map<Integer, Double> solveOrderingProblem(
+            @RequestParam double orderingCost,
+            @RequestParam double holdingCost,
+            @RequestBody int[] demands) {
+        return inventoryService.solveOrderingProblem(orderingCost, holdingCost, demands);
     }
 }
