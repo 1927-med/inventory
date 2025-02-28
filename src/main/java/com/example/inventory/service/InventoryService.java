@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
+//test
 @Service
 public class InventoryService {
 
@@ -45,5 +47,20 @@ public class InventoryService {
 
     public void showInventory() {
         itemRepository.findAll().forEach(System.out::println);
+    }
+
+
+
+    /**
+     * Solves the dynamic ordering problem.
+     *
+     * @param orderingCost Fixed cost for placing an order.
+     * @param holdingCost  Cost of holding one unit of inventory.
+     * @param demands      Array of demands for each time period.
+     * @return A map of inventory levels to their minimal costs.
+     */
+    public Map<Integer, Double> solveOrderingProblem(double orderingCost, double holdingCost, int[] demands) {
+        OrderingProblemSolver solver = new OrderingProblemSolver(orderingCost, holdingCost, demands);
+        return solver.solve();
     }
 }
