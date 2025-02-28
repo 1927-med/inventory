@@ -7,8 +7,35 @@
 <body>
 <div class="container mt-5">
     <h1>Welcome to the Inventory Management System</h1>
-    <p>This is a simple frontend for my Inventory API.</p>
-
+    <p>This is a simple frontend for the Inventory API.</p>
+    <h2>Add New Item</h2>
+    <form action="/api/items" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+        </div>
+        <div class="mb-3">
+            <label for="demand" class="form-label">Demand</label>
+            <input type="number" class="form-control" id="demand" name="demand" required>
+        </div>
+        <div class="mb-3">
+            <label for="orderingCost" class="form-label">Ordering Cost</label>
+            <input type="number" step="0.01" class="form-control" id="orderingCost" name="orderingCost" required>
+        </div>
+        <div class="mb-3">
+            <label for="holdingCost" class="form-label">Holding Cost</label>
+            <input type="number" step="0.01" class="form-control" id="holdingCost" name="holdingCost" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
     <h2>Inventory Items</h2>
     <table class="table table-bordered">
         <thead>
