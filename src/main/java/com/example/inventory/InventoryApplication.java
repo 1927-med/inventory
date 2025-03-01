@@ -21,7 +21,7 @@ public class InventoryApplication {
 			inventoryService.addItem(new Item("Laptop", 5, 1200.00, 10, 50.0, 2.0));
 			inventoryService.addItem(new Item("Mouse", 10, 25.00, 20, 30.0, 1.0));
 			inventoryService.addItem(new Item("Keyboard", 7, 45.99, 15, 40.0, 1.5));
-
+			inventoryService.addItem(new Item("laptop stand", 70, 45.99, 45, 40.0, 1.5));
 
 			System.out.println("Total Inventory Value: $" + inventoryService.calculateTotalValue());
 			System.out.println("Inventory Items:");
