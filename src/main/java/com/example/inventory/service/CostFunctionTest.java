@@ -2,7 +2,7 @@ package com.example.inventory.service;
 
 import java.util.Map;
 
-public class CostFunctionTes {
+public class CostFunctionTest {
     public static void main(String[] args) {
         double orderingCost = 50.0;
         double holdingCost = 2.0;
